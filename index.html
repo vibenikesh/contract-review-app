@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contract Review</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 14l2 2 4-4"/></svg>
+      <span>Contract Review</span>
+    </div>
+    <div class="topbar-right">
+      <span id="topbar-file" class="topbar-file" hidden></span>
+      <label class="btn btn-ghost" for="file-input">
+        <span id="upload-label">Upload PDF</span>
+      </label>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-label="Contract preview">
+      <div class="panel-head">
+        <h2>Contract</h2>
+        <button id="remove-btn" class="link-btn" type="button" hidden>Remove</button>
+      </div>
+
+      <div class="panel-body preview-body">
+        <div id="drop-zone" class="drop-zone">
+          <div class="drop-icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+          </div>
+          <p class="drop-title">Drop your contract here</p>
+          <p class="drop-sub">PDF files only. You can read it here while you ask questions.</p>
+          <label class="btn btn-primary" for="file-input">Choose PDF</label>
+          <p id="file-error" class="file-error" role="alert" hidden></p>
+        </div>
+        <iframe id="pdf-viewer" class="pdf-viewer" title="Contract preview" hidden></iframe>
+        <input id="file-input" type="file" accept="application/pdf,.pdf" hidden>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="Chat">
+      <div class="panel-head">
+        <h2><span class="dot" aria-hidden="true"></span>Ask about this contract</h2>
+      </div>
+      <div id="messages" class="panel-body messages" aria-live="polite">
+        <div class="msg bot">Upload a contract, then ask me questions about it.</div>
+      </div>
+      <form id="chat-form" class="chat-form" autocomplete="off">
+        <label for="chat-input" class="sr-only">Your question</label>
+        <input id="chat-input" type="text" placeholder="Ask a question about the contract…">
+        <button class="btn btn-accent" type="submit">
+          Send
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
